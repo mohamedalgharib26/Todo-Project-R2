@@ -1,16 +1,8 @@
 {
-    "Todos":[{
-        "title": "Learn React "
-    },
+  "Todos": [
     {
-                "title": "Learn Components "
-    },
-        {
-                "title": "Learn Routes "
-    },
-           {
-                "title": "Learn Redux "
+      "id": "1",
+      "title": "Learn React "
     }
-
-]
+  ]
 }
