@@ -36,12 +36,7 @@ function App() {
                                 </label>
                               </div>
                             </div>
-                            <div className="widget-content-left">
-                              <Todo />
-                            </div>
-                            <div className="widget-content-right">
-                              <Actions />
-                            </div>
+                            <Todo />
                           </div>
                         </div>
                       </li>
