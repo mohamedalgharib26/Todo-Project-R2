@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
-import Actions from "./Actions";
+
+import { Link, useNavigate, useParams } from "react-router";
 
 function Todo() {
+  const navigate = useNavigate();
+  const params = useParams();
   const [todos, setTodos] = useState([]);
   //read
   const FetchData = async () => {
@@ -9,15 +12,22 @@ function Todo() {
     const data = await response.json();
     setTodos(data);
   };
+
   //Delete
+
   const DeleteTodo = async (id) => {
     const response = await fetch(`http://localhost:3000/Todos/${id}`, {
       method: "delete",
     });
     const data = await response.json();
+
     FetchData();
+
+    navigate("/about/user");
+
     console.log(data);
   };
+
   //create -- Add
 
   useEffect(() => {
@@ -29,9 +39,11 @@ function Todo() {
       {todos.map((todo) => (
         <div key={todo.id}>
           <div className="widget-content-left">
-            <h5 className="widget-heading">
-              {todo.id} - {todo.title}
-            </h5>
+            <Link to={`/todos/${todo.id}`}>
+              <h5 className="widget-heading">
+                {todo.id} - {todo.title}
+              </h5>
+            </Link>
           </div>
           <div className="widget-content-right">
             {/* <Actions deleteTodo={DeleteTodo} id={todo.id} /> */}
